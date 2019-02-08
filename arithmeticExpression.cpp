@@ -21,7 +21,7 @@ void arithmeticExpression::buildTree() {
 
 	postFix = infix_to_postfix();
 
-	for (int i = 0; i < postFix.size(); i++) {
+	for (unsigned i = 0; i < postFix.size(); i++) {
 
 		check = postFix.at(i);
 
@@ -107,30 +107,39 @@ string arithmeticExpression::infix_to_postfix() {
 
 void arithmeticExpression::infix() {
 	infix(root);
-	cout << endl;
 }
 
 void arithmeticExpression::prefix() {
 	prefix(root);
-	cout << endl;
 }
 
 void arithmeticExpression::postfix() {
 	postfix(root);
-	cout << endl;
 }
 
 void arithmeticExpression::infix(TreeNode *a) {
 	if (a != NULL) {
+		if (!isalnum(a->data))
+		{
+			if (a->left != NULL) {
+				cout << '(';
+			}
+		}
 		infix(a->left);
-		cout << a->data << " ";
+		cout << a->data;
 		infix(a->right);
+		if (!isalnum(a->data))
+		{
+			if (a->left != NULL) {
+				cout << ')';
+			}
+		}
 	}
 }
 
 void arithmeticExpression::prefix(TreeNode *a) {
 	if (a != NULL) {
-		cout << a->data << " ";
+		cout << a->data;
 		prefix(a->left);
 		prefix(a->right);
 	}
@@ -140,7 +149,7 @@ void arithmeticExpression::postfix(TreeNode *a) {
 	if (a != NULL) {
 		postfix(a->left);
 		postfix(a->right);
-		cout << a->data << " ";
+		cout << a->data;
 	}
 }
 

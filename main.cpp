@@ -16,7 +16,7 @@ int main() {
 	cout << "postfix: "; ex1.postfix(); cout << endl;
 	//ex1.visualizeTree("expr1.dot");
 	cout << endl;
-	//
+	////
 	string expr2 = "(a+b)*(c-d)";
 	arithmeticExpression ex2(expr2);
 	ex2.buildTree();
@@ -37,6 +37,5 @@ int main() {
 	//ex3.visualizeTree("expr3.dot");
 	cout << endl;
 
-	system("pause");
 	return 0;
 }
